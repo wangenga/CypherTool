@@ -1,5 +1,11 @@
+import java.util.Scanner;
+
 public class CypherTool {
-    public static void main(String[] args) {}
+    public static void main(String[] args) {
+        System.out.println("Welcome to the Cypher Tool!");
+
+        InputData message = getInput();
+    }
 
     public static InputData getInput() {
         return null;
