@@ -6,7 +6,25 @@ public class CypherTool {
 
       InputData result = getInput();
 
-      System.out.println(result);
+
+      switch (result.operation()) {
+        case 1: 
+            switch (result.cypher()) {
+                case 1 -> System.out.println("Encrypted message (ROT13)");
+                case 2 -> System.out.println("Encrypted message (Atbash)");
+                case 3 -> System.out.println("Encrypted message (IDK)");
+            }
+            break;
+        case 2:
+             switch (result.cypher()) {
+                case 1 -> System.out.println("Decrypted message (ROT13)");
+                case 2 -> System.out.println("Decrypted message (Atbash)");
+                case 3 -> System.out.println("Decrypted message (IDK)");
+            }
+            break;
+      }
+
+      
     }
 
     public static InputData getInput() {
@@ -98,6 +116,7 @@ public class CypherTool {
         }
         System.out.println();
 
+<<<<<<< HEAD
         return InputData(operation, cipher, message);
 
         if (operation == 1 && cypher == 1) {
@@ -109,6 +128,9 @@ public class CypherTool {
             System.out.println(result);
         }
 
+=======
+        return new InputData(operation, cypher, message);
+>>>>>>> 36c91fa (Add operation and cypher selection handling in CypherTool for encryption and decryption options)
     }
 
     public static String encryptRot13(String s) {
