@@ -98,9 +98,7 @@ public class CypherTool {
         }
         System.out.println();
 
-        System.out.println(operation);
-        System.out.println(cypher);
-        System.out.println(message);
+        return InputData(operation, cipher, message);
 
         if (operation == 1 && cypher == 1) {
             String result = encryptRot13(message);
@@ -111,7 +109,6 @@ public class CypherTool {
             System.out.println(result);
         }
 
-        return null;
     }
 
     public static String encryptRot13(String s) {
