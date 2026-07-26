@@ -9,15 +9,18 @@ public class CypherTool {
     }
 
     public static InputData getInput() {
+        int operation = 0;
+        int cypher = 0;
+        String message = "";
+        boolean isValid = false;
+        Scanner scanner = new Scanner(System.in);
+        
+        
+        // operation validation
         System.out.println("Select operation: ");
         System.out.println("1. Encrypt");
         System.out.println("2. Decrypt");
         System.out.print("$> ");
-
-        Scanner scanner = new Scanner(System.in);
-        int operation = 0;
-        int cypher = 0;
-        boolean isValid = false;
 
         while (!isValid){
 
@@ -42,6 +45,8 @@ public class CypherTool {
             }
         }
 
+
+        // cypher validation
         isValid = false;
         System.out.println();
         System.out.println("Select cypher: ");
@@ -72,8 +77,29 @@ public class CypherTool {
                     System.out.print("$> ");
             }
         }
+
+        // Enter message
+        scanner.nextLine();
+        isValid = false;
+        System.out.println();
+        System.out.println("Enter the message: ");
+        System.out.print("$> ");
+
+        while (!isValid){
+            message = scanner.nextLine();
+            
+            if (message.trim().isEmpty()){
+                System.out.println("Error: Text cannot be empty. Please enter Message.");
+                System.out.print("$> ");
+            }else {
+                isValid = true;
+            }
+        }
+        System.out.println();
+
         System.out.println(operation);
         System.out.println(cypher);
+        System.out.println(message);
         return null;
     }
 
