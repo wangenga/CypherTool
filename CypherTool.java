@@ -16,6 +16,7 @@ public class CypherTool {
 
         Scanner scanner = new Scanner(System.in);
         int operation = 0;
+        int cypher = 0;
         boolean isValid = false;
 
         while (!isValid){
@@ -40,6 +41,39 @@ public class CypherTool {
                     System.out.print("$> ");
             }
         }
+
+        isValid = false;
+        System.out.println();
+        System.out.println("Select cypher: ");
+        System.out.println("1. ROT13");
+        System.out.println("2. Atbash");
+        System.out.println("3. I dont know yet");
+        System.out.print("$> ");
+
+        while (!isValid){
+
+            //check if input is an integer
+            if(scanner.hasNextInt()){
+                cypher = scanner.nextInt();
+
+                //check if integer is 1,2 or 3
+                if (cypher == 1 || cypher == 2 || cypher == 3){
+                    isValid = true;
+                } else {
+                    System.out.println("Error: You entered " + cypher + ". Please enter 1, 2 or 3.");
+                    System.out.print("$> ");
+                }
+            }
+            else {
+
+                // handle non-integer
+                    String invalidInput = scanner.next();
+                    System.out.println("Error: " + invalidInput + " is not a valid input.");
+                    System.out.print("$> ");
+            }
+        }
+        System.out.println(operation);
+        System.out.println(cypher);
         return null;
     }
 
