@@ -1,37 +1,46 @@
 import java.util.Scanner;
-
 public class CypherTool {
     public static void main(String[] args) {
-        System.out.println("Welcome to the Cypher Tool!");
+      System.out.println("Welcome To CypherTool!");
 
-        InputData message = getInput();
+      InputData result = getInput();
+
+      System.out.println(result);
     }
 
     public static InputData getInput() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Select operation:");
+        System.out.println("Select operation: ");
         System.out.println("1. Encrypt");
         System.out.println("2. Decrypt");
-        System.out.println("$> ");
+        System.out.print("$> ");
 
-        int ops = scanner.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        int operation = 0;
+        boolean isValid = false;
 
-        System.out.println("Select cypher: ");
-        System.out.println("1. ROT13");
-        System.out.println("2. Atbash");
-        System.out.println("$> ");
+        while (!isValid){
 
-        int cyp = scanner.nextInt();
+            //check if input is an integer
+            if(scanner.hasNextInt()){
+                operation = scanner.nextInt();
 
-        Scanner.nextLine();
+                //check if integer is 1 or 2
+                if (operation == 1 || operation == 2){
+                    isValid = true;
+                } else {
+                    System.out.println("Error: You entered " + operation + ". Please enter 1 or 2.");
+                    System.out.print("$> ");
+                }
+            }
+            else {
 
-        System.out.println("/nEnter message: ");
-        System.out.println("$> ");
-
-        Scanner.nextLine();
-
+                // handle non-integer
+                    String invalidInput = scanner.next();
+                    System.out.println("Error: " + invalidInput + " is not a valid input.");
+                    System.out.print("$> ");
+            }
+        }
         return null;
-
     }
 
     public static String encryptRot13(String s) {
