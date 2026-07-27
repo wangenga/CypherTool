@@ -31,13 +31,15 @@ public class CypherTool {
         case 2:
              switch (result.cypher()) {
                 case 1: {
+                    output = decryptRot13(result.message());
                     System.out.println("Decrypted message (ROT13)");
-                    decryptRot13(result.message());
+                    
                 }
                 break;
                 case 2: {
+                    output = decryptAtbash(result.message());
                     System.out.println("Decrypted message (Atbash)");
-                    decryptAtbash(result.message());
+                    
                 }
                 break;
                 case 3: {
@@ -47,7 +49,9 @@ public class CypherTool {
                 break;
             }
             break;
-      }
+        }
+
+        System.out.println(output);
 
       
     }
