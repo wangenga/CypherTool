@@ -151,6 +151,7 @@ public class CypherTool {
     public static String encryptRot13(String s) {
 
         char[] message = s.toCharArray();
+
         for (int i = 0; i < message.length; i++){
             char current = message[i];
 
@@ -167,28 +168,56 @@ public class CypherTool {
     }
 
     public static String encryptAtbash(String s) {
-        return "";
+
+            char[] message = s.toCharArray();
+            for(int i = 0; i < message.length; i++){
+                char current = message[i];
+
+                if (Character.isLetter(current)) {
+                    if (Character.isUpperCase(current)) {
+                        message[i] = (char) ('Z' - (current - 'A'));
+                    } else {
+                        message[i] = (char) ('z' - (current - 'a'));
+                    }
+                }
+            }
+
+        return new String(message);
     }
 
     public static String decryptRot13(String s) {
 
             char[] message = s.toCharArray();
 
-        
          for (int i = 0; i < message.length; i++){
-            
+            if (Character.isLetter(message[i])) {   
             if(message[i] - 13 < (Character.isUpperCase(message[i]) ? 'A' : 'a')){
                 message[i] =((char) (message[i] - 13 + 26));
             }else{
                 message[i] =((char) (message[i] - 13));
             }
         }
+        }
 
         return new String(message);
     }
 
     public static String decryptAtbash(String s) {
-        return "";
+
+            char[] message = s.toCharArray();
+            for(int i = 0; i < message.length; i++){
+                char current = message[i];
+
+                if (Character.isLetter(current)) {
+                    if (Character.isUpperCase(current)) {
+                        message[i] = (char) ('Z' - (current - 'A'));
+                    } else {
+                        message[i] = (char) ('z' - (current - 'a'));
+                    }
+                }
+            }
+
+        return new String(message);
     }
 }
 
