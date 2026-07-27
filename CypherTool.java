@@ -2,60 +2,60 @@ import java.util.Scanner;
 
 public class CypherTool {
     public static void main(String[] args) {
-      System.out.println("Welcome To CypherTool!");
+    while (true) {
+        System.out.println("Welcome To CypherTool!");
 
-      InputData result = getInput();
-      String output = "";
+        InputData result = getInput();
+        String output = "";
 
 
-      switch (result.operation()) {
-        case 1: 
-            switch (result.cypher()) {
-                case 1: { 
-                    output = encryptRot13(result.message());
-                    System.out.println("Encrypted message (ROT13)");
+        switch (result.operation()) {
+            case 1: 
+                switch (result.cypher()) {
+                    case 1: { 
+                        output = encryptRot13(result.message());
+                        System.out.println("Encrypted message (ROT13)");
+                    }
+                    break;
+                    case 2: {
+                        output = encryptAtbash(result.message());
+                        System.out.println("Encrypted message (Atbash)");
+                    }
+                    break;
+                    case 3: {
+                        output = encryptRailFence(result.message());
+                        System.out.println("Encrypted message (Rail Fence)");
+                        
+                    }
+                    break;
                 }
                 break;
-                case 2: {
-                    output = encryptAtbash(result.message());
-                    System.out.println("Encrypted message (Atbash)");
-                }
-                break;
-                case 3: {
-                    output = encryptRailFence(result.message());
-                    System.out.println("Encrypted message (Rail Fence)");
-                    
+            case 2:
+                switch (result.cypher()) {
+                    case 1: {
+                        output = decryptRot13(result.message());
+                        System.out.println("Decrypted message (ROT13)");
+                        
+                    }
+                    break;
+                    case 2: {
+                        output = decryptAtbash(result.message());
+                        System.out.println("Decrypted message (Atbash)");
+                        
+                    }
+                    break;
+                    case 3: {
+                        output = decryptRailFence(result.message());
+                        System.out.println("Decrypted message (Rail Fence)");
+
+                    }
+                    break;
                 }
                 break;
             }
-            break;
-        case 2:
-             switch (result.cypher()) {
-                case 1: {
-                    output = decryptRot13(result.message());
-                    System.out.println("Decrypted message (ROT13)");
-                    
-                }
-                break;
-                case 2: {
-                    output = decryptAtbash(result.message());
-                    System.out.println("Decrypted message (Atbash)");
-                    
-                }
-                break;
-                case 3: {
-                    output = decryptRailFence(result.message());
-                    System.out.println("Decrypted message (Rail Fence)");
 
-                }
-                break;
-            }
-            break;
-        }
-
-        System.out.println(output);
-
-      
+            System.out.println(output);
+        }  
     }
 
     public static InputData getInput() {
