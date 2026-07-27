@@ -173,19 +173,19 @@ public class CypherTool {
     }
 
     public static String encryptAtbash(String s) {
+        char[] message = s.toCharArray();
 
-            char[] message = s.toCharArray();
-            for(int i = 0; i < message.length; i++){
-                char current = message[i];
+        for (int i = 0; i < message.length; i++) {
+            char current = message[i];
 
-                if (Character.isLetter(current)) {
-                    if (Character.isUpperCase(current)) {
-                        message[i] = (char) ('Z' - (current - 'A'));
-                    } else {
-                        message[i] = (char) ('z' - (current - 'a'));
-                    }
+            if (Character.isLetter(current)) {
+                if (Character.isUpperCase(current)) {
+                    message[i] = (char) ('Z' - (current - 'A'));
+                } else {
+                    message[i] = (char) ('z' - (current - 'a'));
                 }
             }
+        }
 
         return new String(message);
     }
@@ -210,21 +210,7 @@ public class CypherTool {
     }
 
     public static String decryptAtbash(String s) {
-
-            char[] message = s.toCharArray();
-            for(int i = 0; i < message.length; i++){
-                char current = message[i];
-
-                if (Character.isLetter(current)) {
-                    if (Character.isUpperCase(current)) {
-                        message[i] = (char) ('Z' - (current - 'A'));
-                    } else {
-                        message[i] = (char) ('z' - (current - 'a'));
-                    }
-                }
-            }
-
-        return new String(message);
+        return encryptAtbash(s);
     }
 
     public static String encryptRailFence(String s) {
