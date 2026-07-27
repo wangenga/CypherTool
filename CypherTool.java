@@ -139,8 +139,8 @@ public class CypherTool {
 
         while (!isValid){
             message = scanner.nextLine();
-            checkExit = (message);
-            
+            checkExit(message);
+
             if (message.trim().isEmpty()){
                 System.out.println("Error: Text cannot be empty. Please enter Message.");
                 System.out.print("$> ");
