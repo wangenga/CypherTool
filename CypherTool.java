@@ -90,6 +90,7 @@ public class CypherTool {
 
                 // handle non-integer
                     String invalidInput = scanner.next();
+                    checkExit(invalidInput);
                     System.out.println("Error: " + invalidInput + " is not a valid input.");
                     System.out.print("$> ");
             }
@@ -123,6 +124,7 @@ public class CypherTool {
 
                 // handle non-integer
                     String invalidInput = scanner.next();
+                    checkExit(invalidInput);
                     System.out.println("Error: " + invalidInput + " is not a valid input.");
                     System.out.print("$> ");
             }
@@ -137,6 +139,7 @@ public class CypherTool {
 
         while (!isValid){
             message = scanner.nextLine();
+            checkExit = (message);
             
             if (message.trim().isEmpty()){
                 System.out.println("Error: Text cannot be empty. Please enter Message.");
@@ -275,5 +278,12 @@ public class CypherTool {
 
         return result.toString();
     }
+
+    public static void checkExit(String input) {
+    if (input.equalsIgnoreCase("exit")) {
+        System.out.println("Goodbye!");
+        System.exit(0);
+    }
+}
 }
 
