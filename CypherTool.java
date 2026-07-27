@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class CypherTool {
     public static void main(String[] args) {
       System.out.println("Welcome To CypherTool!");
@@ -100,11 +101,35 @@ public class CypherTool {
         System.out.println(operation);
         System.out.println(cypher);
         System.out.println(message);
+
+        if (operation == 1 && cypher == 1) {
+            String result = encryptRot13(message);
+            System.out.println(result);
+        }
+        if (operation == 2 && cypher == 1) {
+            String result = decryptRot13(message);
+            System.out.println(result);
+        }
+
         return null;
     }
 
     public static String encryptRot13(String s) {
-        return "";
+
+        char[] message = s.toCharArray();
+        for (int i = 0; i < message.length; i++){
+            char current = message[i];
+
+            if (Character.isLetter(current)) {
+                if (current + 13 > (Character.isUpperCase(current) ? 'Z' : 'z')) {
+                    message[i] = ((char) (current + 13 - 26));
+                } else {
+                    message[i] = ((char) (current + 13));
+                }
+            }
+        }
+
+        return new String(message);
     }
 
     public static String encryptAtbash(String s) {
@@ -112,11 +137,24 @@ public class CypherTool {
     }
 
     public static String decryptRot13(String s) {
-        return "";
+
+            char[] message = s.toCharArray();
+
+        
+         for (int i = 0; i < message.length; i++){
+            
+            if(message[i] - 13 < (Character.isUpperCase(message[i]) ? 'A' : 'a')){
+                message[i] =((char) (message[i] - 13 + 26));
+            }else{
+                message[i] =((char) (message[i] - 13));
+            }
+        }
+
+        return new String(message);
     }
 
     public static String decryptAtbash(String s) {
         return "";
     }
-
 }
+
