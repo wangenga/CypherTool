@@ -150,7 +150,7 @@ public class CypherTool {
         }
         System.out.println();
 
-        return new InputData(operation, cypher, message);
+        return new InputData(operation, cypher, message.trim());
     }
 
     public static String encryptRot13(String s) {
